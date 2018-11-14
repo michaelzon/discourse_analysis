@@ -4,64 +4,74 @@ import nltk
 import os
 import sys
 
+# open the files with positive and negative words
+positivesList = open("pos_dutch_2.txt")
+negativesList = open("neg_dutch_2.txt")
 
-# # absolute paths to lists
-# positives = os.path.join(sys.path[0], "pos_dutch.txt")
-# negatives = os.path.join(sys.path[0], "neg_dutch.txt")
+positives = []
+negatives = []
+
+# store the words in seperate lists
+for lines in positivesList:
+    lines = lines.lower()
+    positives.append(lines.strip("\n"))
+
+for lines in negativesList:
+    lines = lines.lower()
+    negatives.append(lines.strip("\n"))
+
+# text = open("De_Telegraaf_2011_2.TXT")
+text = open("De_Volkskrant_2017_1.TXT")
+# text = open("NRC_SAMPLE.TXT")
 
 
-positiveWords = open("pos_dutch_2.txt")
+# reading the article, using TextBlob library to seperate each word
+text = text.read()
+blob = TextBlob(text)
 
-positiveWords = positiveWords.read()
+# these are words that are bound to the meta-deta of the articlesfile
+ruis = ["DOCUMENTS", "SECTION", "LENGTH", "LOAD-DATE", "LANGUAGE",
+        "PUBLICATION-TYPE", "JOURNAL-CODE", "BYLINE", "All", "Rights",
+        "Reserved", "Copyright", "krant", "Krant", "KRANT"]
 
-blobBlob = TextBlob(positiveWords)
+# make a list for all the words in the articles
+wordList = []
 
-positiveWords = []
+# and store every word in that list
+for word in blob.words:
+    if not any(x in word for x in ruis):
+       word = word.lower()
+       wordList.append(word)
 
-for posWord in blobBlob.words:
-    positiveWords.append(posWord)
+# # code for checking the wordlist:
+# count = 0
+# for each in wordList:
+#     print(count, each)
+#     count += 1
 
-print("positive words list:", positiveWords)
+# variables for the frequencies of negative and positive words in articles
+amountPos = 0
+amountNeg = 0
 
-negativeWords = open("neg_dutch_2.txt")
+count = 0
 
-negativeWords = negativeWords.read()
+# if a word from the article is included in either positive or negative word list
+for word in wordList:
+    print("words",count, word)
+    count += 1
+    for pos in positives:
+        if word == pos:
+            print("positief woord ^")
 
-blobBlobBlob = TextBlob(negativeWords)
+            # increment the frequency of positive words
+            amountPos += 1
+    for neg in negatives:
+        if word == neg:
+            print("negatief woord ^")
 
-negativeWords = []
+            # or increment the frequency of negative words
+            amountNeg += 1
 
-for negWord in blobBlobBlob.words:
-    negativeWords.append(negWord)
 
-print("negative words list:", negativeWords)
-
-# positiveWords.close()
-
-# get words from article
-def getWords():
-    # mooie woordenlijst deels zonder meta data.
-    text = open("De_Volkskrant_2017_1.TXT")
-
-    # reading the file, save it in the variable blob
-    text = text.read()
-    # text = "Blij vrolijk gelukkig mooie dag zon plantjes"
-    blob = TextBlob(text)
-
-    ruis = ["DOCUMENTS", "SECTION", "LENGTH", "LOAD-DATE", "LANGUAGE",
-            "PUBLICATION-TYPE", "JOURNAL-CODE", "BYLINE", "All", "Rights",
-            "Reserved", "Copyright"]
-
-    wordList = []
-
-    for word in blob.words:
-        if not any(x in word for x in ruis):
-           word = word.lower()
-           wordList.append(word)
-
-    # print(wordList)
-
-# getWords()
-#
-# if __name__ == '__main__':
-#     main()
+print("aantal positieve woorden:", amountPos)
+print("aantal negatieve woorden:", amountNeg)
