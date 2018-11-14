@@ -43,35 +43,36 @@ for word in blob.words:
        word = word.lower()
        wordList.append(word)
 
-# # code for checking the wordlist:
-# count = 0
-# for each in wordList:
-#     print(count, each)
-#     count += 1
-
-# variables for the frequencies of negative and positive words in articles
-amountPos = 0
-amountNeg = 0
-
+# code for checking the wordlist:
 count = 0
-
-# if a word from the article is included in either positive or negative word list
-for word in wordList:
-    print("words",count, word)
+for each in wordList:
+    print(count, each)
     count += 1
-    for pos in positives:
-        if word == pos:
-            print("positief woord ^")
-
-            # increment the frequency of positive words
-            amountPos += 1
-    for neg in negatives:
-        if word == neg:
-            print("negatief woord ^")
-
-            # or increment the frequency of negative words
-            amountNeg += 1
 
 
-print("aantal positieve woorden:", amountPos)
-print("aantal negatieve woorden:", amountNeg)
+# # variables for the frequencies of negative and positive words in articles
+# amountPos = 0
+# amountNeg = 0
+#
+# count = 0
+#
+# # if a word from the article is included in either positive or negative word list
+# for word in wordList:
+#     print("words",count, word)
+#     count += 1
+#     for pos in positives:
+#         if word == pos:
+#             print("positief woord ^")
+#
+#             # increment the frequency of positive words
+#             amountPos += 1
+#     for neg in negatives:
+#         if word == neg:
+#             print("negatief woord ^")
+#
+#             # or increment the frequency of negative words
+#             amountNeg += 1
+#
+#
+# print("aantal positieve woorden:", amountPos)
+# print("aantal negatieve woorden:", amountNeg)
