@@ -46,7 +46,7 @@ wordList = ['de', 'oude', 'vrijster', 'had', 'ontslag', 'genomen', 'en',
 negWords = ["oude vrijster is boos", "ontslag genomen", "mega mega mega naar",
             "ten einde raad", "vervelend", "boos", "pak slaag",
             "verkeerd voorstellen"]
-            
+
 noSpace = []
 oneSpace = []
 twoSpaces = []
@@ -54,18 +54,19 @@ threeSpaces = []
 count = 0
 
 def howManySpaces(negWords, noSpace, oneSpace, twoSpaces, threeSpaces, count):
-    flag = True
+
+    # read every word in the list with negative words
     for i in range(len(negWords)):
-        print('alle negwords', negWords[i])
+
+        # every word is a phrase, because there are "words" with spaces
         phrase = negWords[i]
-        print("phrase", phrase)
+
+        # look at every character and assign the phrase to a list
+        # that correspondes with the number of spaces in it
         for j in range(len(phrase)):
-            print('prashe[j]', phrase[j])
             if phrase[j] == " ":
                 count += 1
         if phrase[-1]:
-            print('the end end count', count)
-
             if count == 1:
                 oneSpace.append(phrase)
             elif count == 2:
@@ -75,6 +76,7 @@ def howManySpaces(negWords, noSpace, oneSpace, twoSpaces, threeSpaces, count):
             else:
                 noSpace.append(phrase)
 
+            # reset the counter to avoid the total sum of spaces in a list
             count = 0
 
     return negWords, noSpace, oneSpace, twoSpaces, threeSpaces, count
