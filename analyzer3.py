@@ -31,54 +31,124 @@ for pos in posList:
     if " " in pos:
         posSpaces.append(pos)
 
-# print("posSpaces", posSpaces)
-
 for neg in negList:
     if " " in neg:
         negSpaces.append(neg)
 
-# print("negSpaces", negSpaces)
 
-text = open("ontslag.txt")
+l1 = ["ten einde raad", "oude vrijster", "boef"]
 
-# reading the article, using TextBlob library to seperate each word
-text = text.read()
-blob = TextBlob(text)
-
-# make a list for all the words in the articles
-wordList = []
-
-# and store every word in that list
-for word in blob.words:
-   word = word.lower()
-   wordList.append(word)
-
-print("wordList", wordList)
+joinedl1 = []
 
 
 
-# variables for the frequencies of negative and positive words in articles
-amountPos = 0
-amountNeg = 0
+for i in range(len(l1)):
+    l1[i].split(" ")
+    # if " " + " " in l1[i]:
+    #     print('yes')
+    # else:
+    #     print("no")
 
-count = 0
+print(l1)
 
-# if a word from the article is included in either positive or negative word list
-for word in wordList:
-    # print("words",count, word)
-    count += 1
-    for pos in posList:
-        if word == pos:
-            # print("positief woord ^")
+# for i in range(len(posSpaces)):
+#     print(posSpaces[i])
+#
+# for i in range(len(negSpaces)):
+#     print(negSpaces[i])
+#
+# oneSpace = []
+#
+# for i in range(len(posSpaces)):
+#     if posSpace[i] ==  + " "
 
-            # increment the frequency of positive words
-            amountPos += 1
-    for neg in negList:
-        if word == neg:
-            # print("negatief woord ^")
+# text = open("ontslag.txt")
+#
+# # reading the article, using TextBlob library to seperate each word
+# text = text.read()
+# blob = TextBlob(text)
+#
+# # make a list for all the words in the articles
+# wordList = []
+#
+# # and store every word in that list
+# for word in blob.words:
+#    word = word.lower()
+#    wordList.append(word)
+#
+# print('wordlist1', wordList)
+#
+# negOntslag = ["de oude vrijster", "ontslag genomen", "ten einde raad", "boos", "pak slaag", "verkeerd voorstellen"]
+#
+# print("negontslag", negOntslag)
+#
+# # at the end of a string item, merge it with the adjacent item
+# s = "".join(negOntslag)
+#
+# n = []
+#
+# for i in wordList:
+#     if i in s:
+#         n.append(i)
+#
+# print('newnegOntslag', n)
+#
+# c = 0
+#
+# for i in n:
+#     if c == len(n) - 2:
+#         break
+#     if (n[c] + " " + n[c+1]):
+#         word = n[c] + " " + n[c+1]
+#         print('WORD2', word)
+#         if word in negOntslag:
+#             print("word in negontslag", word)
+#             ix1 = wordList.index(n[c])
+#             ("ix1", ix1)
+#             del wordList[ix1: ix1+2]
+#             wordList.insert(ix1,word)
+#     if (n[c] + " " + n[c+1] + " " + n[c+2]):
+#         word = n[c] + " " + n[c+1] + " " + n[c+2]
+#         print('WORD3', word)
+#         if word in negOntslag:
+#             print("word in negontslag", word)
+#             ix1 = wordList.index(n[c])
+#             ("ix1", ix1)
+#             del wordList[ix1: ix1+2: ix1+3]
+#             wordList.insert(ix1,word)
+#     c += 1
+#
+# print('newWordlist', wordList)
+#
+#
+#
+#
+#
 
-            # or increment the frequency of negative words
-            amountNeg += 1
 
-print("aantal positieve woorden:", amountPos)
-print("aantal negatieve woorden:", amountNeg)
+
+# # variables for the frequencies of negative and positive words in articles
+# amountPos = 0
+# amountNeg = 0
+#
+# count = 0
+#
+# # if a word from the article is included in either positive or negative word list
+# for word in wordList:
+#     # print("words",count, word)
+#     count += 1
+#     for pos in posList:
+#         if word == pos:
+#             # print("positief woord ^")
+#
+#             # increment the frequency of positive words
+#             amountPos += 1
+#     for neg in negList:
+#         if word == neg:
+#             # print("negatief woord ^")
+#
+#             # or increment the frequency of negative words
+#             amountNeg += 1
+#
+# print("aantal positieve woorden:", amountPos)
+# print("aantal negatieve woorden:", amountNeg)

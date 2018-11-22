@@ -30,5 +30,14 @@ for neg in negList:
     if " " in neg:
         negSpaces.append(neg)
 
-print(posSpaces)
-print(negSpaces)
+# print(posSpaces)
+# print(negSpaces)
+
+posSpacesSep = []
+
+blob = TextBlob(posSpaces)
+
+for word in blob.words:
+    posSpacesSep.append(word)
+
+print(posSpacesSep)
