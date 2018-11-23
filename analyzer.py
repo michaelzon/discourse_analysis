@@ -128,15 +128,22 @@ count = 0
 # print(word_list[-1])
 # if (word_list[-1]): << laatste item van list 'media'
 
+phrases_two = []
+
 
 # start at index zero, till one before end of the list
 for i in range(0, len(word_list)-2, 1):
 
     # until it hits the last word of the list, make for every two words in the
     # article next to each other a phrase of two words, so we can check if
-    # there are phrases in the article who also exists in the pos or neg wordslists 
+    # there are phrases in the article who also exists in the pos or neg wordslists
     if word_list[-1]:
         phrase = " "
         strings = word_list[i], word_list[i+1]
         phrase = phrase.join(strings)
-        print(phrase)
+        phrases_two.append(phrase)
+
+        for j in range(len(neg_one_space)):
+            print(phrase)
+            if phrase == neg_one_space[j]:
+                print("ja ja ja ja")
