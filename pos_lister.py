@@ -47,19 +47,19 @@ def pos_how_many_spaces(pos_list, pos_no_space, pos_one_space, pos_two_spaces,
 pos_how_many_spaces(pos_list, pos_no_space, pos_one_space,
                     pos_two_spaces, pos_three_spaces, count)
 
-print("pos_no_space", pos_no_space)
-print("pos_one_space", pos_one_space)
-print("pos_two_spaces", pos_two_spaces)
+# print("pos_no_space", pos_no_space)
+# print("pos_one_space", pos_one_space)
+# print("pos_two_spaces", pos_two_spaces)
 print("pos_three_spaces", pos_three_spaces)
 
-for i in range(len(pos_no_space)):
-    print('0',i, pos_no_space[i])
-
-for i in range(len(pos_one_space)):
-    print('1',i, pos_one_space[i])
-
-for i in range(len(pos_two_spaces)):
-    print('2',i, pos_two_spaces[i])
+# for i in range(len(pos_no_space)):
+#     print('0',i, pos_no_space[i])
+#
+# for i in range(len(pos_one_space)):
+#     print('1',i, pos_one_space[i])
+#
+# for i in range(len(pos_two_spaces)):
+#     print('2',i, pos_two_spaces[i])
 
 for i in range(len(pos_three_spaces)):
     print('3',i, pos_three_spaces[i])

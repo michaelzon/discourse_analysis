@@ -49,19 +49,19 @@ neg_how_many_spaces(neg_list, neg_no_space, neg_one_space,
                     neg_two_spaces, neg_three_spaces, count)
 
 print("neg_no_space", neg_no_space)
-print("neg_one_space", neg_one_space)
-print("neg_two_spaces", neg_two_spaces)
-print("neg_three_spaces", neg_three_spaces)
+# print("neg_one_space", neg_one_space)
+# print("neg_two_spaces", neg_two_spaces)
+# print("neg_three_spaces", neg_three_spaces)
 
 
-for i in range(len(neg_no_space)):
-    print(i, neg_no_space[i])
+# for i in range(len(neg_no_space)):
+#     print(i, neg_no_space[i])
+#
+# for i in range(len(neg_one_space)):
+#     print(i, neg_one_space[i])
+#
+# for i in range(len(neg_two_spaces)):
+#     print(i, neg_two_spaces[i])
 
-for i in range(len(neg_one_space)):
-    print(i, neg_one_space[i])
-
-for i in range(len(neg_two_spaces)):
-    print(i, neg_two_spaces[i])
-
-for i in range(len(neg_three_spaces)):
-    print(i, neg_three_spaces[i])
+# for i in range(len(neg_three_spaces)):
+#     print(i, neg_three_spaces[i])
