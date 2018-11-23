@@ -130,6 +130,7 @@ count = 0
 
 phrases_two = []
 
+amount_neg = 0
 
 # start at index zero, till one before end of the list
 for i in range(0, len(word_list)-2, 1):
@@ -142,8 +143,29 @@ for i in range(0, len(word_list)-2, 1):
         strings = word_list[i], word_list[i+1]
         phrase = phrase.join(strings)
         phrases_two.append(phrase)
+        count = 0
 
-        for j in range(len(neg_one_space)):
-            print(phrase)
-            if phrase == neg_one_space[j]:
-                print("ja ja ja ja")
+        # examine each phrase, and check if the same phrase exists in the list
+        # with negative phrases containing two words
+        # dont forget to delete the counter, is only for readability
+        for phrase in phrases_two:
+            print("phrase", count, phrase)
+            count += 1
+
+            for neg in neg_one_space:
+                if phrase == neg:
+                    print("negatief woord^")
+                    amount_neg += 1
+
+
+        # for j in range(len(phrases_two)):
+        #     print('p',j, phrases_two[j])
+
+            # print('n',neg_one_space[j])
+
+
+            # if phrases_two[j] in neg_one_space:
+            #     print("yes")
+
+            # if phrase == neg_one_space[j]:
+            #     print("ja ja ja ja")

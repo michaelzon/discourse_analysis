@@ -98,7 +98,6 @@ count = 0
 # if a word from the article is included in either positive or negative word list
 for word in word_list:
     print("words",count, word)
-    count += 1
     for neg in neg_no_space:
         if word == neg:
             print("negatief woord ^")
