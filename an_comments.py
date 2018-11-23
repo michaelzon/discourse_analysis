@@ -1,4 +1,4 @@
-from textblob import TextBlob
+an_commentsfrom textblob import TextBlob
 
 # open the files with negative words
 negatives = open("neg_dutch_2.txt")
