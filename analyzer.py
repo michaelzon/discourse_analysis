@@ -125,18 +125,13 @@ amount_pos = 0
 amount_neg = 0
 count = 0
 
-# print(word_list[-1])
-# if (word_list[-1]): << laatste item van list 'media'
-
 phrases_four = []
 phrases_three = []
 phrases_two = []
+phrases_one = []
 amount_neg = 0
 
-print(neg_three_spaces)
-
 # PHRASE 4
-
 for i in range(0, len(word_list)-4, 1):
     if word_list[-1]:
         phrase = " "
@@ -144,10 +139,9 @@ for i in range(0, len(word_list)-4, 1):
         phrase = phrase.join(strings)
         phrases_four.append(phrase)
         count = 0
-        print(phrases_four)
 
 for phrase in phrases_four:
-    print("phrase", count, phrase)
+    print("phrase4", count, phrase)
     count += 1
 
     for neg in neg_three_spaces:
@@ -163,12 +157,11 @@ for i in range(0, len(word_list)-3, 1):
         phrase = " "
         strings = word_list[i], word_list[i+1], word_list[i+2]
         phrase = phrase.join(strings)
-        phrases_four.append(phrase)
+        phrases_three.append(phrase)
         count = 0
-        print(phrases_three)
 
 for phrase in phrases_three:
-    print("phrase", count, phrase)
+    print("phrase3", count, phrase)
     count += 1
 
     for neg in neg_two_spaces:
@@ -178,14 +171,8 @@ for phrase in phrases_three:
 
 print(amount_neg)
 
-
 # PHRASE 2
-# start at index zero, till one before end of the list
 for i in range(0, len(word_list)-2, 1):
-
-    # until it hits the last word of the list, make for every two words in the
-    # article next to each other a phrase of two words, so we can check if
-    # there are phrases in the article who also exists in the pos or neg wordslists
     if word_list[-1]:
         phrase = " "
         strings = word_list[i], word_list[i+1]
@@ -193,16 +180,31 @@ for i in range(0, len(word_list)-2, 1):
         phrases_two.append(phrase)
         count = 0
 
-# examine each phrase, and check if the same phrase exists in the list
-# with negative phrases containing two words
-# dont forget to delete the counter, is only for readability
 for phrase in phrases_two:
-    # print("phrase", count, phrase)
+    print("phrase2", count, phrase)
     count += 1
 
     for neg in neg_one_space:
         if phrase == neg:
-            # print("negatief woord^")
+            print("negatief woord^")
             amount_neg += 1
 
-# print(amount_neg)
+print(amount_neg)
+
+# JUST A WORD
+for i in range(0, len(word_list)-1, 1):
+    if word_list[-1]:
+        phrase = word_list[i]
+        phrases_one.append(phrase)
+        count = 0
+
+for phrase in phrases_one:
+    print("phrase1", count, phrase)
+    count += 1
+
+    for neg in neg_no_space:
+        if phrase == neg:
+            print("negatief woord^")
+            amount_neg += 1
+
+print(amount_neg)
