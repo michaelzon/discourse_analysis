@@ -10,6 +10,9 @@ for lines in negatives:
     lines = lines.lower()
     neg_list.append(lines.strip("\n"))
 
+negatives.close()
+
+
 neg_no_space = []
 neg_one_space = []
 neg_two_spaces = []
@@ -61,6 +64,8 @@ for lines in positives:
     lines = lines.lower()
     pos_list.append(lines.strip("\n"))
 
+positives.close()
+
 pos_no_space = []
 pos_one_space = []
 pos_two_spaces = []
@@ -102,8 +107,7 @@ pos_how_many_spaces(pos_list, pos_no_space, pos_one_space,
                     pos_two_spaces, pos_three_spaces, count)
 
 text = open("lil_sample.txt")
-text = open("De_Telegraaf_2011_2.TXT")
-
+# text = open("De_Telegraaf_2011_2.TXT")
 
 # reading the article, using TextBlob library to seperate each word
 text = text.read()
