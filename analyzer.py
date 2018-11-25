@@ -17,6 +17,7 @@ neg_three_spaces = []
 
 count = 0
 
+# deviding the negative phrases in classes corresponding to the quantity of words
 def neg_how_many_spaces(neg_list, neg_no_space, neg_one_space, neg_two_spaces,
                         neg_three_spaces, count):
 
@@ -66,6 +67,7 @@ pos_two_spaces = []
 pos_three_spaces = []
 count = 0
 
+# deviding the positive phrases in classes corresponding to the quantity of words
 def pos_how_many_spaces(pos_list, pos_no_space, pos_one_space, pos_two_spaces,
                         pos_three_spaces, count):
 
@@ -99,7 +101,7 @@ def pos_how_many_spaces(pos_list, pos_no_space, pos_one_space, pos_two_spaces,
 pos_how_many_spaces(pos_list, pos_no_space, pos_one_space,
                     pos_two_spaces, pos_three_spaces, count)
 
-text = open("nrc_sample.TXT")
+text = open("lil_sample.txt")
 
 # reading the article, using TextBlob library to seperate each word
 text = text.read()
@@ -132,7 +134,14 @@ phrases_one = []
 amount_neg = 0
 
 # PHRASE 4
-for i in range(0, len(word_list)-4, 1):
+for i in range(len(word_list)):
+    print(i,word_list[i])
+
+# amount of words in one phrase
+phrase_q = 4
+
+# iterating untill hitting last four words, otherwise iterating is out of range
+for i in range(0, len(word_list) - phrase_q, 1):
     if word_list[-1]:
         phrase = " "
         strings = word_list[i], word_list[i+1], word_list[i+2], word_list[i+3]
@@ -144,15 +153,31 @@ for phrase in phrases_four:
     print("phrase4", count, phrase)
     count += 1
 
+    # create a new index for proper deletion of classified phrases
+    index = count - 1
+
     for neg in neg_three_spaces:
         if phrase == neg:
             print("negatief woord^")
+            print('index', index)
+
+            # deleting words from list that are classified as either a pos
+            # or neg phrase
+            for j in range(0, phrase_q):
+                del word_list[index]
+
             amount_neg += 1
 
 print(amount_neg)
 
-# PHRASE 3
-for i in range(0, len(word_list)-3, 1):
+for i in range(len(word_list)):
+    print(i,word_list[i])
+
+
+
+phrase_q = 3
+
+for i in range(0, len(word_list) - phrase_q, 1):
     if word_list[-1]:
         phrase = " "
         strings = word_list[i], word_list[i+1], word_list[i+2]
@@ -164,15 +189,28 @@ for phrase in phrases_three:
     print("phrase3", count, phrase)
     count += 1
 
+    index = count - 1
+
     for neg in neg_two_spaces:
         if phrase == neg:
             print("negatief woord^")
+            for j in range(0, phrase_q):
+                del word_list[index]
+
             amount_neg += 1
 
 print(amount_neg)
 
+for i in range(len(word_list)):
+    print(i,word_list[i])
+    
 # PHRASE 2
+# start at index zero, till one before end of the list
 for i in range(0, len(word_list)-2, 1):
+
+    # until it hits the last word of the list, make for every two words in the
+    # article next to each other a phrase of two words, so we can check if
+    # there are phrases in the article who also exists in the pos or neg wordslists
     if word_list[-1]:
         phrase = " "
         strings = word_list[i], word_list[i+1]
@@ -180,6 +218,9 @@ for i in range(0, len(word_list)-2, 1):
         phrases_two.append(phrase)
         count = 0
 
+# examine each phrase, and check if the same phrase exists in the list
+# with negative phrases containing two words
+# dont forget to delete the counter, is only for readability
 for phrase in phrases_two:
     print("phrase2", count, phrase)
     count += 1
@@ -189,7 +230,7 @@ for phrase in phrases_two:
             print("negatief woord^")
             amount_neg += 1
 
-print(amount_neg)
+print('amount_neg', amount_neg)
 
 # JUST A WORD
 for i in range(0, len(word_list)-1, 1):
@@ -208,3 +249,7 @@ for phrase in phrases_one:
             amount_neg += 1
 
 print(amount_neg)
+
+# BIG UPDATE:
+#
+# Because I promised you guys to keep you updated, this is my code so far. It was kinda tricky because in my lists with positive words and negative words there where phrases that contained max three words. So I needed to figure out how to work with that. I realised (also because of the answers you guys gave me, thanks again!) that I had to make lists from all the words of the text that needed to be analysed with either 3, 2, or 1 words in one string item so I can check if the items also appear in my lists of positive words end negative words. Here is my code so far. It's kinda bulky, with a lot of copy pasting... Im planning to fix that but im quite tired and weekend is starting now, so no hate please! (tips are welcome tho)
