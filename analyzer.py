@@ -102,6 +102,8 @@ pos_how_many_spaces(pos_list, pos_no_space, pos_one_space,
                     pos_two_spaces, pos_three_spaces, count)
 
 text = open("lil_sample.txt")
+text = open("De_Telegraaf_2011_2.TXT")
+
 
 # reading the article, using TextBlob library to seperate each word
 text = text.read()
@@ -142,6 +144,8 @@ phrase_q = 4
 
 # iterating untill hitting last four words, otherwise iterating is out of range
 for i in range(0, len(word_list) - phrase_q, 1):
+
+    # until reaching the last word of the list, make for every four words one phrase
     if word_list[-1]:
         phrase = " "
         strings = word_list[i], word_list[i+1], word_list[i+2], word_list[i+3]
@@ -156,6 +160,7 @@ for phrase in phrases_four:
     # create a new index for proper deletion of classified phrases
     index = count - 1
 
+    # examine each phrase, and check if the same phrase exists in the phrases list
     for neg in neg_three_spaces:
         if phrase == neg:
             print("negatief woord^")
@@ -172,8 +177,6 @@ print(amount_neg)
 
 for i in range(len(word_list)):
     print(i,word_list[i])
-
-
 
 phrase_q = 3
 
@@ -203,14 +206,12 @@ print(amount_neg)
 
 for i in range(len(word_list)):
     print(i,word_list[i])
-    
-# PHRASE 2
-# start at index zero, till one before end of the list
-for i in range(0, len(word_list)-2, 1):
 
-    # until it hits the last word of the list, make for every two words in the
-    # article next to each other a phrase of two words, so we can check if
-    # there are phrases in the article who also exists in the pos or neg wordslists
+phrase_q = 2
+
+# start at index zero, till one before end of the list
+for i in range(0, len(word_list) - phrase_q, 1):
+
     if word_list[-1]:
         phrase = " "
         strings = word_list[i], word_list[i+1]
@@ -218,22 +219,29 @@ for i in range(0, len(word_list)-2, 1):
         phrases_two.append(phrase)
         count = 0
 
-# examine each phrase, and check if the same phrase exists in the list
-# with negative phrases containing two words
-# dont forget to delete the counter, is only for readability
 for phrase in phrases_two:
     print("phrase2", count, phrase)
     count += 1
 
+    index = count - 1
+
     for neg in neg_one_space:
         if phrase == neg:
             print("negatief woord^")
+            print('index', index)
+
+            for j in range(0, phrase_q):
+                del word_list[index]
+
             amount_neg += 1
 
 print('amount_neg', amount_neg)
+for i in range(len(word_list)):
+    print(i,word_list[i])
 
-# JUST A WORD
-for i in range(0, len(word_list)-1, 1):
+# nothing has to be delete... right???? (pos/neg validity)(don't forget to take a look at this)
+phrase_q = 1
+for i in range(0, len(word_list) - phrase_q, 1):
     if word_list[-1]:
         phrase = word_list[i]
         phrases_one.append(phrase)
@@ -248,7 +256,7 @@ for phrase in phrases_one:
             print("negatief woord^")
             amount_neg += 1
 
-print(amount_neg)
+print("amount_neg", amount_neg)
 
 # BIG UPDATE:
 #

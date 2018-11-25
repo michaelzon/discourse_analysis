@@ -243,6 +243,7 @@ phrase_q = 4
 
 # iterating untill hitting last four words, otherwise iterating is out of range
 for i in range(0, len(word_list) - phrase_q, 1):
+
     if word_list[-1]:
         phrase = " "
         strings = word_list[i], word_list[i+1], word_list[i+2], word_list[i+3]
