@@ -177,10 +177,10 @@ for phrase in phrases_four:
 
             amount_neg += 1
 
-print(amount_neg)
+print("amount_neg", amount_neg)
 
 for i in range(len(word_list)):
-    print(i,word_list[i])
+    print('nieuwe woordenlijst', i,word_list[i])
 
 phrase_q = 3
 
@@ -206,10 +206,10 @@ for phrase in phrases_three:
 
             amount_neg += 1
 
-print(amount_neg)
+print("amount_neg", amount_neg)
 
 for i in range(len(word_list)):
-    print(i,word_list[i])
+    print('nieuwe woordenlijst', i,word_list[i])
 
 phrase_q = 2
 
@@ -240,8 +240,9 @@ for phrase in phrases_two:
             amount_neg += 1
 
 print('amount_neg', amount_neg)
+
 for i in range(len(word_list)):
-    print(i,word_list[i])
+    print('nieuwe woordenlijst', i,word_list[i])
 
 # nothing has to be delete... right???? (pos/neg validity)(don't forget to take a look at this)
 phrase_q = 1
@@ -255,11 +256,16 @@ for phrase in phrases_one:
     print("phrase1", count, phrase)
     count += 1
 
+    index = count - 1
+
     for neg in neg_no_space:
         if phrase == neg:
             print("negatief woord^")
             amount_neg += 1
+            del word_list[index]
 
+for i in range(len(word_list)):
+    print('nieuwe woordenlijst', i,word_list[i])
 print("amount_neg", amount_neg)
 
 # BIG UPDATE:
