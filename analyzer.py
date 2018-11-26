@@ -12,7 +12,6 @@ for lines in negatives:
 
 negatives.close()
 
-
 neg_no_space = []
 neg_one_space = []
 neg_two_spaces = []
@@ -106,32 +105,6 @@ def pos_how_many_spaces(pos_list, pos_no_space, pos_one_space, pos_two_spaces,
 pos_how_many_spaces(pos_list, pos_no_space, pos_one_space,
                     pos_two_spaces, pos_three_spaces, count)
 
-
-# for i in range(len(pos_three_spaces)):
-#     print("pos_three_spaces[i]",i, pos_three_spaces[i])
-#
-# for i in range(len(pos_two_spaces)):
-#     print("pos_two_spaces[i]",i, pos_two_spaces[i])
-#
-# for i in range(len(pos_one_space)):
-#     print("pos_one_space[i]",i, pos_one_space[i])
-#
-# for i in range(len(pos_no_space)):
-#     print("pos_no_space[i]",i, pos_no_space[i])
-
-
-# for i in range(len(neg_three_spaces)):
-#     print("neg_three_spaces[i]",i, neg_three_spaces[i])
-#
-# for i in range(len(neg_two_spaces)):
-#     print("neg_two_spaces[i]",i, neg_two_spaces[i])
-#
-# for i in range(len(neg_one_space)):
-#     print("neg_one_space[i]",i, neg_one_space[i])
-#
-# for i in range(len(neg_no_space)):
-#     print("neg_no_space[i]",i, neg_no_space[i])
-
 text = open("lil_sample.txt")
 # text = open("De_Telegraaf_2011_2.TXT")
 
@@ -163,67 +136,8 @@ phrases_three = []
 phrases_two = []
 phrases_one = []
 
-# PHRASE 4
-for i in range(len(word_list)):
-    print(i,word_list[i])
-
-# # amount of words in one phrase
-# phrase_q = 4
-#
-# # iterating untill hitting last four words, otherwise iterating is out of range
-# for i in range(0, len(word_list) - phrase_q, 1):
-#
-#     # until reaching the last word of the list, make for every four words one phrase
-#     if word_list[-1]:
-#         phrase = " "
-#         strings = word_list[i], word_list[i+1], word_list[i+2], word_list[i+3]
-#         phrase = phrase.join(strings)
-#         phrases_four.append(phrase)
-#         count = 0
-#
-# for phrase in phrases_four:
-#     print("phrase4", count, phrase)
-#     count += 1
-#
-#     # create a new index for proper deletion of classified phrases
-#     index = count - 1
-#
-#     # examine each negative phrase, and check if the same phrase exists in the phrases list
-#     for neg in neg_three_spaces:
-#         if phrase == neg:
-#             print("negatief woord^")
-#             print("word_list[index]",index, word_list[index])
-#
-#             # deleting words from list that are classified as either a pos
-#             # or neg phrase
-#             for j in range(0, phrase_q):
-#                 print("(index), delete:", index, word_list[index])
-#                 del word_list[index]
-#             for i in range(len(word_list)):
-#                 print('nieuwe woordenlijst', i,word_list[i])
-#             amount_neg += 1
-#
-#     for pos in pos_three_spaces:
-#         if phrase == pos:
-#             print("positief woord^")
-#
-#             print("index & word_list[index]", index, word_list[index-phrase_q])
-#
-#             for k in range(0, phrase_q):
-#                 print("delete:", word_list[index-phrase_q])
-#                 del word_list[index-phrase_q]
-#             amount_pos += 1
-#
-# print("amount_neg", amount_neg)
-# print("amount_pos", amount_pos)
-#
-# for i in range(len(word_list)):
-#     print('nieuwe woordenlijst', i,word_list[i])
-
-phrase_q = 4
-
-def generator(self, phrase_q):
-    self.phrase_q = phrase_q
+def generator(phrase_q):
+    # phrase_q = phrase_q
     for i in range(0, len(word_list) - phrase_q, 1):
         if word_list[-1]:
             phrase = " "
@@ -239,22 +153,38 @@ def generator(self, phrase_q):
                 strings = word_list[i], word_list[i+1]
                 phrase = phrase.join(strings)
                 phrases_two.append(phrase)
-            elif phrase_q ==1:
-                strings = word_list[i]
-                phrase = phrase.join(strings)
+            elif phrase_q == 1:
+                phrase = word_list[i]
                 phrases_one.append(phrase)
-            phrase = phrase.join(strings)
-            phrases_four.append(phrase)
             count = 0
 
-generator()
+generator(4)
+generator(3)
+generator(2)
+generator(1)
+
+# for phrase in phrases_four:
+#     print("phrase4", count, phrase)
+#     count += 1
+#
+# for phrase in phrases_three:
+#     print("phrase3", count, phrase)
+#     count += 1
+#
+# for phrase in phrases_two:
+#     print("phrase2", count, phrase)
+#     count += 1
+#
+# for phrase in phrases_one:
+#     print("phrase1", count, phrase)
+#     count += 1
 
 
+phrase_q = 4
 for phrase in phrases_four:
     print("phrase4", count, phrase)
     count += 1
     index = count - 1
-
     for neg in neg_three_spaces:
         if phrase == neg:
             print("negatief woord^")
@@ -262,6 +192,7 @@ for phrase in phrases_four:
             for j in range(0, phrase_q):
                 print("(index), delete:", index, word_list[index])
                 del word_list[index]
+                generator(phrase_q)
             for i in range(len(word_list)):
                 print('nieuwe woordenlijst', i,word_list[i])
             amount_neg += 1
@@ -281,7 +212,7 @@ for i in range(len(word_list)):
     print('nieuwe woordenlijst', i,word_list[i])
 
 
-#
+
 # phrase_q = 3
 #
 # for i in range(0, len(word_list) - phrase_q, 1):
