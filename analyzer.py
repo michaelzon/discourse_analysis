@@ -120,17 +120,17 @@ pos_how_many_spaces(pos_list, pos_no_space, pos_one_space,
 #     print("pos_no_space[i]",i, pos_no_space[i])
 
 
-for i in range(len(neg_three_spaces)):
-    print("neg_three_spaces[i]",i, neg_three_spaces[i])
-
-for i in range(len(neg_two_spaces)):
-    print("neg_two_spaces[i]",i, neg_two_spaces[i])
-
-for i in range(len(neg_one_space)):
-    print("neg_one_space[i]",i, neg_one_space[i])
-
-for i in range(len(neg_no_space)):
-    print("neg_no_space[i]",i, neg_no_space[i])
+# for i in range(len(neg_three_spaces)):
+#     print("neg_three_spaces[i]",i, neg_three_spaces[i])
+#
+# for i in range(len(neg_two_spaces)):
+#     print("neg_two_spaces[i]",i, neg_two_spaces[i])
+#
+# for i in range(len(neg_one_space)):
+#     print("neg_one_space[i]",i, neg_one_space[i])
+#
+# for i in range(len(neg_no_space)):
+#     print("neg_no_space[i]",i, neg_no_space[i])
 
 text = open("lil_sample.txt")
 # text = open("De_Telegraaf_2011_2.TXT")
@@ -193,22 +193,22 @@ for phrase in phrases_four:
     for neg in neg_three_spaces:
         if phrase == neg:
             print("negatief woord^")
-            print('index', index)
-            print("word_list[index]",word_list[index])
+            print("word_list[index]",index, word_list[index])
 
             # deleting words from list that are classified as either a pos
             # or neg phrase
             for j in range(0, phrase_q):
-                print("delete:", word_list[index])
+                print("(index), delete:", index, word_list[index])
                 del word_list[index]
+            for i in range(len(word_list)):
+                print('nieuwe woordenlijst', i,word_list[i])
             amount_neg += 1
 
     for pos in pos_three_spaces:
         if phrase == pos:
             print("positief woord^")
-            print('index', index)
 
-            print("word_list[index]", word_list[index-phrase_q])
+            print("index & word_list[index]", index, word_list[index-phrase_q])
 
             for k in range(0, phrase_q):
                 print("delete:", word_list[index-phrase_q])
@@ -243,9 +243,9 @@ for phrase in phrases_three:
             print('index', index)
             print("word_list[index]",word_list[index])
 
-            for j in range(0, phrase_q):
-                print("delete:", word_list[index])
-                del word_list[index]
+            # for j in range(0, phrase_q):
+            #     print("delete:", word_list[index])
+            #     del word_list[index]
             amount_neg += 1
 
     for pos in pos_two_spaces:
@@ -290,9 +290,9 @@ for phrase in phrases_two:
             print('index', index)
             print("word_list[index]",word_list[index])
 
-            for j in range(0, phrase_q):
-                print("delete:", word_list[index])
-                del word_list[index]
+            # for j in range(0, phrase_q):
+            #     print("delete:", word_list[index])
+            #     del word_list[index]
             amount_neg += 1
 
     for pos in pos_one_space:
@@ -333,7 +333,7 @@ for phrase in phrases_one:
             print('index', index)
             print("word_list[index]",word_list[index])
             print("delete:", word_list[index])
-            del word_list[index]
+            # del word_list[index]
             amount_neg += 1
 
     for pos in pos_no_space:
@@ -352,8 +352,6 @@ for i in range(len(word_list)):
 print("amount_neg", amount_neg)
 print("amount_pos", amount_pos)
 
+# de boeren zagen de oude vrijster op de loer liggen terwijl ze een hekel hebben aan haar, toen moesten ze de varkens in de steek laten, ze waren ten einde raad maar ook boos, maarja
 
-
-# BIG UPDATE:
-#
-# Because I promised you guys to keep you updated, this is my code so far. It was kinda tricky because in my lists with positive words and negative words there where phrases that contained max three words. So I needed to figure out how to work with that. I realised (also because of the answers you guys gave me, thanks again!) that I had to make lists from all the words of the text that needed to be analysed with either 3, 2, or 1 words in one string item so I can check if the items also appear in my lists of positive words end negative words. Here is my code so far. It's kinda bulky, with a lot of copy pasting... Im planning to fix that but im quite tired and weekend is starting now, so no hate please! (tips are welcome tho)
+# Gelukkig was het niet voor de hand liggend dat dol zijn op boodschappen doen bovenmenselijk was, media
