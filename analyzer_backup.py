@@ -284,3 +284,63 @@ print("amount_neg", amount_neg)
 # BIG UPDATE:
 #
 # Because I promised you guys to keep you updated, this is my code so far. It was kinda tricky because in my lists with positive words and negative words there where phrases that contained max three words. So I needed to figure out how to work with that. I realised (also because of the answers you guys gave me, thanks again!) that I had to make lists from all the words of the text that needed to be analysed with either 3, 2, or 1 words in one string item so I can check if the items also appear in my lists of positive words end negative words. Here is my code so far. It's kinda bulky, with a lot of copy pasting... Im planning to fix that but im quite tired and weekend is starting now, so no hate please! (tips are welcome tho)
+
+
+
+
+
+
+
+
+# amount of words in one phrase
+phrase_q = 4
+
+# iterating untill hitting last four words, otherwise iterating is out of range
+for i in range(0, len(word_list) - phrase_q, 1):
+
+    # until reaching the last word of the list, make for every four words one phrase
+    if word_list[-1]:
+        phrase = " "
+        strings = word_list[i], word_list[i+1], word_list[i+2], word_list[i+3]
+        phrase = phrase.join(strings)
+        phrases_four.append(phrase)
+        count = 0
+
+for phrase in phrases_four:
+    print("phrase4", count, phrase)
+    count += 1
+
+    # create a new index for proper deletion of classified phrases
+    index = count - 1
+
+    # examine each phrase, and check if the same phrase exists in the phrases list
+    for neg in neg_three_spaces:
+        if phrase == neg:
+            print("negatief woord^")
+            print('index', index)
+            print("word_list[index]",word_list[index])
+
+            # deleting words from list that are classified as either a pos
+            # or neg phrase
+            for j in range(0, phrase_q):
+                print("delete:", word_list[index])
+                del word_list[index]
+            amount_neg += 1
+
+    for pos in pos_three_spaces:
+        if phrase == pos:
+            print("positief woord^")
+            print('index', index)
+
+            print("word_list[index]", word_list[index-phrase_q])
+
+            for k in range(0, phrase_q):
+                print("delete:", word_list[index-phrase_q])
+                del word_list[index-phrase_q]
+            amount_pos += 1
+
+print("amount_neg", amount_neg)
+print("amount_pos", amount_pos)
+
+for i in range(len(word_list)):
+    print('nieuwe woordenlijst', i,word_list[i])

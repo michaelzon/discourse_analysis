@@ -107,18 +107,30 @@ pos_how_many_spaces(pos_list, pos_no_space, pos_one_space,
                     pos_two_spaces, pos_three_spaces, count)
 
 
-for i in range(len(pos_three_spaces)):
-    print("pos_three_spaces[i]",i, pos_three_spaces[i])
+# for i in range(len(pos_three_spaces)):
+#     print("pos_three_spaces[i]",i, pos_three_spaces[i])
+#
+# for i in range(len(pos_two_spaces)):
+#     print("pos_two_spaces[i]",i, pos_two_spaces[i])
+#
+# for i in range(len(pos_one_space)):
+#     print("pos_one_space[i]",i, pos_one_space[i])
+#
+# for i in range(len(pos_no_space)):
+#     print("pos_no_space[i]",i, pos_no_space[i])
 
-for i in range(len(pos_two_spaces)):
-    print("pos_two_spaces[i]",i, pos_two_spaces[i])
 
-for i in range(len(pos_one_space)):
-    print("pos_one_space[i]",i, pos_one_space[i])
+for i in range(len(neg_three_spaces)):
+    print("neg_three_spaces[i]",i, neg_three_spaces[i])
 
-for i in range(len(pos_no_space)):
-    print("pos_no_space[i]",i, pos_no_space[i])
+for i in range(len(neg_two_spaces)):
+    print("neg_two_spaces[i]",i, neg_two_spaces[i])
 
+for i in range(len(neg_one_space)):
+    print("neg_one_space[i]",i, neg_one_space[i])
+
+for i in range(len(neg_no_space)):
+    print("neg_no_space[i]",i, neg_no_space[i])
 
 text = open("lil_sample.txt")
 # text = open("De_Telegraaf_2011_2.TXT")
@@ -182,15 +194,29 @@ for phrase in phrases_four:
         if phrase == neg:
             print("negatief woord^")
             print('index', index)
+            print("word_list[index]",word_list[index])
 
             # deleting words from list that are classified as either a pos
             # or neg phrase
             for j in range(0, phrase_q):
+                print("delete:", word_list[index])
                 del word_list[index]
-
             amount_neg += 1
 
+    for pos in pos_three_spaces:
+        if phrase == pos:
+            print("positief woord^")
+            print('index', index)
+
+            print("word_list[index]", word_list[index-phrase_q])
+
+            for k in range(0, phrase_q):
+                print("delete:", word_list[index-phrase_q])
+                del word_list[index-phrase_q]
+            amount_pos += 1
+
 print("amount_neg", amount_neg)
+print("amount_pos", amount_pos)
 
 for i in range(len(word_list)):
     print('nieuwe woordenlijst', i,word_list[i])
@@ -214,12 +240,28 @@ for phrase in phrases_three:
     for neg in neg_two_spaces:
         if phrase == neg:
             print("negatief woord^")
-            for j in range(0, phrase_q):
-                del word_list[index]
+            print('index', index)
+            print("word_list[index]",word_list[index])
 
+            for j in range(0, phrase_q):
+                print("delete:", word_list[index])
+                del word_list[index]
             amount_neg += 1
 
+    for pos in pos_two_spaces:
+        if phrase == pos:
+            print("positief woord^")
+            print('index', index)
+
+            print("word_list[index]", word_list[index-phrase_q])
+
+            for k in range(0, phrase_q):
+                print("delete:", word_list[index-phrase_q])
+                del word_list[index-phrase_q]
+            amount_pos += 1
+
 print("amount_neg", amount_neg)
+print("amount_pos", amount_pos)
 
 for i in range(len(word_list)):
     print('nieuwe woordenlijst', i,word_list[i])
@@ -246,13 +288,27 @@ for phrase in phrases_two:
         if phrase == neg:
             print("negatief woord^")
             print('index', index)
+            print("word_list[index]",word_list[index])
 
             for j in range(0, phrase_q):
+                print("delete:", word_list[index])
                 del word_list[index]
-
             amount_neg += 1
 
+    for pos in pos_one_space:
+        if phrase == pos:
+            print("positief woord^")
+            print('index', index)
+
+            print("word_list[index]", word_list[index-phrase_q])
+
+            for k in range(0, phrase_q):
+                print("delete:", word_list[index-phrase_q])
+                del word_list[index-phrase_q]
+            amount_pos += 1
+
 print('amount_neg', amount_neg)
+print("amount_pos", amount_pos)
 
 for i in range(len(word_list)):
     print('nieuwe woordenlijst', i,word_list[i])
@@ -274,12 +330,29 @@ for phrase in phrases_one:
     for neg in neg_no_space:
         if phrase == neg:
             print("negatief woord^")
-            amount_neg += 1
+            print('index', index)
+            print("word_list[index]",word_list[index])
+            print("delete:", word_list[index])
             del word_list[index]
+            amount_neg += 1
+
+    for pos in pos_no_space:
+        if phrase == pos:
+            print("positief woord^")
+            print('index', index)
+            print("word_list[index]",word_list[index])
+            for k in range(0, phrase_q):
+                print("delete:", word_list[index-phrase_q])
+                del word_list[index-phrase_q]
+            amount_pos += 1
+            amount_pos += 1
 
 for i in range(len(word_list)):
     print('nieuwe woordenlijst', i,word_list[i])
 print("amount_neg", amount_neg)
+print("amount_pos", amount_pos)
+
+
 
 # BIG UPDATE:
 #
