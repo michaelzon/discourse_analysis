@@ -106,39 +106,12 @@ pos_how_many_spaces(pos_list, pos_no_space, pos_one_space,
                     pos_two_spaces, pos_three_spaces, count)
 
 
-# for i in range(len(pos_three_spaces)):
-#     # print("pos_three_spaces[i]",i, pos_three_spaces[i])
-#
-# for i in range(len(pos_two_spaces)):
-#     # print("pos_two_spaces[i]",i, pos_two_spaces[i])
-#
-# for i in range(len(pos_one_space)):
-#     # print("pos_one_space[i]",i, pos_one_space[i])
-
-# for i in range(len(pos_no_space)):
-#     # print("pos_no_space[i]",i, pos_no_space[i])
-
-
-# for i in range(len(neg_three_spaces)):
-#     # print("neg_three_spaces[i]",i, neg_three_spaces[i])
-#
-# for i in range(len(neg_two_spaces)):
-#     # print("neg_two_spaces[i]",i, neg_two_spaces[i])
-#
-# for i in range(len(neg_one_space)):
-#     # print("neg_one_space[i]",i, neg_one_space[i])
-
-# for i in range(len(neg_no_space)):
-#     # print("neg_no_space[i]",i, neg_no_space[i])
-
 # text = open("lil_sample.txt")
 text = open("AD_Algemeen_Dagblad_2011.TXT")
 
 # reading the article, using TextBlob library to seperate each word
 text = text.read()
 blob = TextBlob(text)
-
-
 
 # these are words that are bound to the meta-deta of the articlesfile
 ruis = ["DOCUMENTS", "SECTION", "LENGTH", "LOAD-DATE", "LANGUAGE",
@@ -165,10 +138,6 @@ phrases_two = []
 phrases_one = []
 amount_neg = 0
 
-# PHRASE 4
-# for i in range(len(word_list)):
-#     # print(i,word_list[i])
-
 # amount of words in one phrase
 phrase_q = 4
 
@@ -184,7 +153,6 @@ for i in range(0, len(word_list) - phrase_q, 1):
         count = 0
 
 for phrase in phrases_four:
-    # # print("phrase4", count, phrase)
     count += 1
 
     # create a new index for proper deletion of classified phrases
@@ -193,37 +161,21 @@ for phrase in phrases_four:
     # examine each negative phrase, and check if the same phrase exists in the phrases list
     for neg in neg_three_spaces:
         if phrase == neg:
-            # # print("negatief woord^")
-            # # print("word_list[index]",index, word_list[index])
 
             # manipulate words from list that are classified as either a pos
             # or neg phrase
             for j in range(0, phrase_q):
-                # # print("(index), manipuleer:", index, word_list[index+j])
                 word_list[index+j] = "!" + word_list[index+j]
-
-            # # print('wordlistttt', word_list)
             amount_neg += 1
 
     for pos in pos_three_spaces:
         if phrase == pos:
-            # print("positief woord^")
-
             for k in range(0, phrase_q):
-                # print("(index), manipuleer:", index, word_list[index+k])
                 word_list[index+k] = "$" + word_list[index+k]
-            # print('wordlistttt', word_list)
 
             amount_pos += 1
 
-# print("amount_neg", amount_neg)
-# print("amount_pos", amount_pos)
-
-# for i in range(len(word_list)):
-    # print('nieuwe woordenlijst', i,word_list[i])
-
 phrase_q = 3
-
 for i in range(0, len(word_list) - phrase_q, 1):
     if word_list[-1]:
         phrase = " "
@@ -233,40 +185,18 @@ for i in range(0, len(word_list) - phrase_q, 1):
         count = 0
 
 for phrase in phrases_three:
-    # print("phrase3", count, phrase)
     count += 1
-
     index = count - 1
-
     for neg in neg_two_spaces:
         if phrase == neg:
-            # print("negatief woord^")
-            # print('index', index)
-
             for j in range(0, phrase_q):
-                # print("(index), manipuleer:", index, word_list[index+j])
                 word_list[index+j] = "!" + word_list[index+j]
-
-            # print('wordlistttt', word_list)
-
             amount_neg += 1
-
     for pos in pos_two_spaces:
         if phrase == pos:
-            # print("positief woord^")
-            # print('index', index)
-
             for k in range(0, phrase_q):
-                # print("(index), manipuleer:", index, word_list[index+k])
                 word_list[index+k] = "$" + word_list[index+k]
-            # print('wordlistttt', word_list)
             amount_pos += 1
-
-# print("amount_neg", amount_neg)
-# print("amount_pos", amount_pos)
-
-# for i in range(len(word_list)):
-    # print('nieuwe woordenlijst', i,word_list[i])
 
 phrase_q = 2
 
@@ -281,39 +211,20 @@ for i in range(0, len(word_list) - phrase_q, 1):
         count = 0
 
 for phrase in phrases_two:
-    # print("phrase2", count, phrase)
     count += 1
-
     index = count - 1
 
     for neg in neg_one_space:
         if phrase == neg:
-            # print("negatief woord^")
-            # print('index', index)
-
             for j in range(0, phrase_q):
-                # print("(index), manipuleer:", index, word_list[index+j])
                 word_list[index+j] = "!" + word_list[index+j]
-
-            # print('wordlistttt', word_list)
             amount_neg += 1
 
     for pos in pos_one_space:
         if phrase == pos:
-            # print("positief woord^")
-            # print('index', index)
-
             for k in range(0, phrase_q):
-                # print("(index), manipuleer:", index, word_list[index+k])
                 word_list[index+k] = "$" + word_list[index+k]
-            # print('wordlistttt', word_list)
             amount_pos += 1
-
-# print('amount_neg', amount_neg)
-# print("amount_pos", amount_pos)
-
-# for i in range(len(word_list)):
-    # print('nieuwe woordenlijst', i,word_list[i])
 
 # nothing has to be delete... right???? (pos/neg validity)(don't forget to take a look at this)
 phrase_q = 1
@@ -324,36 +235,21 @@ for i in range(0, len(word_list) - phrase_q, 1):
         count = 0
 
 for phrase in phrases_one:
-    # print("phrase1", count, phrase)
     count += 1
-
     index = count - 1
 
     for neg in neg_no_space:
         if phrase == neg:
-            # print("negatief woord^")
-            # print('index', index)
 
             for j in range(0, phrase_q):
-                # print("(index), manipuleer:", index, word_list[index+j])
                 word_list[index+j] = "!" + word_list[index+j]
-            # print('wordlistttt', word_list)
-
             amount_neg += 1
 
     for pos in pos_no_space:
         if phrase == pos:
-            # print("positief woord^")
-            # print('index', index)
             for k in range(0, phrase_q):
-                # print("(index), manipuleer:", index, word_list[index+k])
                 word_list[index+k] = "$" + word_list[index+k]
             amount_pos += 1
 
-# for i in range(len(word_list)):
-    # print('nieuwe woordenlijst', i,word_list[i])
-
 print("amount_pos", amount_pos)
 print("amount_neg", amount_neg)
-
-# de boeren zagen de oude vrijster op de loer liggen terwijl ze een hekel hebben aan haar, extra in de steek laten extra, ze waren ten einde raad maar ook boos, maarja
