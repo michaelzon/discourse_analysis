@@ -130,38 +130,86 @@ for word in blob.words:
 # variables for the frequencies of negative and positive words in articles
 amount_pos = 0
 amount_neg = 0
-
 phrases_four = []
 phrases_three = []
 phrases_two = []
 phrases_one = []
 
-def generator(phrase_q):
-    # phrase_q = phrase_q
-    for i in range(0, len(word_list) - phrase_q, 1):
-        if word_list[-1]:
-            phrase = " "
-            if phrase_q == 4:
-                strings = word_list[i], word_list[i+1], word_list[i+2], word_list[i+3]
-                phrase = phrase.join(strings)
-                phrases_four.append(phrase)
-            elif phrase_q == 3:
-                strings = word_list[i], word_list[i+1], word_list[i+2]
-                phrase = phrase.join(strings)
-                phrases_three.append(phrase)
-            elif phrase_q == 2:
-                strings = word_list[i], word_list[i+1]
-                phrase = phrase.join(strings)
-                phrases_two.append(phrase)
-            elif phrase_q == 1:
-                phrase = word_list[i]
-                phrases_one.append(phrase)
-            count = 0
+# def generator(phrase_q, word_list, phrases_one, phrases_two, phrases_three, phrases_four):
+#     phrase_q = phrase_q
+#     phrases_four = []
+#     phrases_three = []
+#     phrases_two = []
+#     phrases_one = []
+#
+#     for i in range(0, len(word_list) - phrase_q, 1):
+#         print("w00rdenlijst", i,word_list[i])
+#         if word_list[-1]:
+#             phrase = " "
+#             if phrase_q == 4:
+#                 strings = word_list[i], word_list[i+1], word_list[i+2], word_list[i+3]
+#                 phrase = phrase.join(strings)
+#                 phrases_four.append(phrase)
+#             elif phrase_q == 3:
+#                 strings = word_list[i], word_list[i+1], word_list[i+2]
+#                 phrase = phrase.join(strings)
+#                 phrases_three.append(phrase)
+#             elif phrase_q == 2:
+#                 strings = word_list[i], word_list[i+1]
+#                 print("stringss", strings)
+#                 phrase = phrase.join(strings)
+#                 print("JOINstringsforPhrase", phrase)
+#                 phrases_two.append(phrase)
+#                 print("INBLOCKPHRASE", phrases_two)
+#             elif phrase_q == 1:
+#                 phrase = word_list[i]
+#                 phrases_one.append(phrase)
+#             count = 0
+#     # print("phrases_twoINGEN", phrases_two)
+#     return phrase_q, word_list, phrases_one, phrases_two, phrases_three, phrases_four
 
-generator(4)
-generator(3)
-generator(2)
-generator(1)
+class Phraser():
+    def __init__(self, phrase_q, word_list2, phrases_one, phrases_two, phrases_three, phrases_four):
+        self.phrase_q = phrase_q
+        self.word_list2 = word_list2
+        self.phrase_one = []
+        self.phrase_two = []
+        self.phrase_three = []
+        self.phrase_four = []
+
+    # def generator(phrase_q, word_list2, phrases_one, phrases_two, phrases_three, phrases_four):
+    def generator(self):
+
+        for i in range(0, len(self.word_list2) - self.phrase_q, 1):
+            print("w00rdenlijst", i,self.word_list2[i])
+            if self.word_list2[-1]:
+                phrase = " "
+                if self.phrase_q == 4:
+                    strings = self.word_list2[i], self.word_list2[i+1], self.word_list2[i+2], self.word_list2[i+3]
+                    phrase = phrase.join(strings)
+                    phrases_four.append(phrase)
+                elif self.phrase_q == 3:
+                    strings = self.word_list2[i], self.word_list2[i+1], self.word_list2[i+2]
+                    phrase = phrase.join(strings)
+                    phrases_three.append(phrase)
+                elif self.phrase_q == 2:
+                    strings = self.word_list2[i], self.word_list2[i+1]
+                    print("stringss", strings)
+                    phrase = phrase.join(strings)
+                    print("JOINstringsforPhrase", phrase)
+                    phrases_two.append(phrase)
+                    print("INBLOCKPHRASE", phrases_two)
+                elif self.phrase_q == 1:
+                    phrase = self.word_list2[i]
+                    phrases_one.append(phrase)
+                count = 0
+        # print("phrases_twoINGEN", phrases_two)
+        return self.phrase_q, self.word_list2, phrases_one, phrases_two, phrases_three, phrases_four
+
+# generator(4, word_list)
+# generator(3, word_list)
+# generator(2, word_list)
+# generator(1, word_list)
 
 # for phrase in phrases_four:
 #     print("phrase4", count, phrase)
@@ -170,15 +218,36 @@ generator(1)
 # for phrase in phrases_three:
 #     print("phrase3", count, phrase)
 #     count += 1
-#
-# for phrase in phrases_two:
-#     print("phrase2", count, phrase)
-#     count += 1
-#
+
+phrase_q = 2
+phrase_gen = Phraser(phrase_q, word_list, phrases_one, phrases_two, phrases_three, phrases_four)
+# print("prhase_gen_",phrase_gen)
+
+phrase_gen.generator()
+
+
+for phrase in phrases_two:
+    print("phrase2afterfirstGen", count, phrase)
+    count += 1
+
+print("123", word_list)
+del word_list[1]
+print("4566", word_list)
+
+print("DELETE boeren")
+print("GENERATOR:")
+phrase_gen1 = Phraser(phrase_q, word_list, phrases_one, phrases_two, phrases_three, phrases_four)
+phrase_gen1.generator()
+
+print("WJIK")
+print(phrases_two)
+for phrase in phrases_two:
+    print("phrase2!", phrase)
+    count += 1
+
 # for phrase in phrases_one:
 #     print("phrase1", count, phrase)
 #     count += 1
-
 
 phrase_q = 4
 for phrase in phrases_four:
@@ -192,7 +261,9 @@ for phrase in phrases_four:
             for j in range(0, phrase_q):
                 print("(index), delete:", index, word_list[index])
                 del word_list[index]
-                generator(phrase_q)
+                generator(phrase_q, word_list)
+                # for phrase in phrases_four:
+                #     print("phrase444", count, phrase)
             for i in range(len(word_list)):
                 print('nieuwe woordenlijst', i,word_list[i])
             amount_neg += 1

@@ -10,8 +10,6 @@ for lines in negatives:
     lines = lines.lower()
     neg_list.append(lines.strip("\n"))
 
-negatives.close()
-
 neg_no_space = []
 neg_one_space = []
 neg_two_spaces = []
