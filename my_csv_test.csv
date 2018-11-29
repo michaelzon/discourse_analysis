@@ -1,6 +1,6 @@
-article_ID,sample_size,amount_pos,amount_neg
-ad_1998,200,10,20
-ad_1999,200,10,20
-ad_2000,200,10,20
-ad_2001,200,10,20
-ad_2002,200,10,20
+article_ID,sample_size,amount_pos,amount_neg,total_amount_pos,total_amount_neg,N
+ad_1998,1,25,5,25,5,1
+ad_1999,1,30,2,55,7,2
+ad_2000,1,58,34,113,41,3
+ad_2001,1,13,6,126,47,4
+ad_2002,1,26,21,152,68,5
