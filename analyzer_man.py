@@ -176,6 +176,7 @@ for phrase in phrases_four:
             amount_pos += 1
 
 phrase_q = 3
+
 for i in range(0, len(word_list) - phrase_q, 1):
     if word_list[-1]:
         phrase = " "
@@ -226,8 +227,8 @@ for phrase in phrases_two:
                 word_list[index+k] = "$" + word_list[index+k]
             amount_pos += 1
 
-# nothing has to be delete... right???? (pos/neg validity)(don't forget to take a look at this)
 phrase_q = 1
+
 for i in range(0, len(word_list) - phrase_q, 1):
     if word_list[-1]:
         phrase = word_list[i]
@@ -250,6 +251,7 @@ for phrase in phrases_one:
             for k in range(0, phrase_q):
                 word_list[index+k] = "$" + word_list[index+k]
             amount_pos += 1
+
 
 print("amount_pos", amount_pos)
 print("amount_neg", amount_neg)
