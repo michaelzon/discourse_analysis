@@ -1,0 +1,31 @@
+de oude vrijster had ontslag genomen en was ten einde raad en heel boos dat is niet verkeerd voorstellen dus pak slaag
+
+
+["de", "bazige" "oude", "vrijster", "werkgever", "had", "ontslag", "genomen", "ze", "was", "ten", "einde", "raad", "en", "heel", "boos"]
+
+
+dit is hoe je wilt dat het programma de woorden analyzeert:
+neg_phrase3 = ["ten einde raad"]
+neg_phrase2 = ["oude vrijster"], ["ontslag genomen"]
+neg_phrase1 = ["boos"]
+
+maar stel dat in de negatieve woordenlijst de phrase ["bazige werkgever"] staat, zal hij die ook zo tellen in het artikel want:
+
+eerste iteratie,
+
+ten einde raad wordt verwijdert uit woordenlijst >
+
+["de", "bazige" "oude", "vrijster", "werkgever", "had", "ontslag", "genomen", "ze", "was", "en", "heel", "boos"]
+
+vervolgens kijken naar phrases met twee woorden:
+
+["oude vrijster"] > verwijderen uit woordenlijst
+
+nieuwe woordenlijst:
+
+["de", "bazige", "werkgever", "had", "ontslag", "genomen", "ze", "was", "en", "heel", "boos"]
+
+["bazige werkgever"] > verwijderen uit woordenlijst
+
+dit is waar het fout gaat, bazige werkgever staat namelijk niet oorspronkelijk in het artikel naast elkaar, maar door het verwijderen
+uit de woordenlijst van "oude vrijster" komen deze twee woorden naast elkaar te staan in de te analyzeren woordenlijst.
