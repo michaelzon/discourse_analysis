@@ -1,6 +1,5 @@
 from spaces import *
 from article_list import article_list
-# from article_list_test import article_list_test
 
 neg_how_many_spaces(neg_list, neg_no_space, neg_one_space,
                     neg_two_spaces, neg_three_spaces, count)
@@ -19,9 +18,6 @@ list_total_amount_neg = []
 bigger_sample_size = 0
 total_amount_pos = 0
 total_amount_neg = 0
-
-# text = open("lil_sample.txt")
-# text = open("samples/AD_Algemeen_Dagblad_2011.TXT")
 
 for sample in range(len(article_list)):
 
@@ -82,6 +78,9 @@ for sample in range(len(article_list)):
         # examine each negative phrase, and check if the same phrase exists in the phrases list
         for neg in neg_three_spaces:
             if phrase == neg:
+                # print(phrase)
+                # print("negatief woord^")
+                # print()
 
                 # manipulate words from list that are classified as either a pos
                 # or neg phrase
@@ -91,6 +90,9 @@ for sample in range(len(article_list)):
 
         for pos in pos_three_spaces:
             if phrase == pos:
+                # print(phrase)
+                # print("positief woord^")
+                # print()
                 for k in range(0, phrase_q):
                     word_list[index+k] = "$" + word_list[index+k]
 
@@ -111,11 +113,17 @@ for sample in range(len(article_list)):
         index = count - 1
         for neg in neg_two_spaces:
             if phrase == neg:
+                # print(phrase)
+                # print("negatief woord^")
+                # print()
                 for j in range(0, phrase_q):
                     word_list[index+j] = "!" + word_list[index+j]
                 amount_neg += 1
         for pos in pos_two_spaces:
             if phrase == pos:
+                # print(phrase)
+                # print("positief woord^")
+                # print()
                 for k in range(0, phrase_q):
                     word_list[index+k] = "$" + word_list[index+k]
                 amount_pos += 1
@@ -138,12 +146,18 @@ for sample in range(len(article_list)):
 
         for neg in neg_one_space:
             if phrase == neg:
+                # print(phrase)
+                # print("negatief woord^")
+                # print()
                 for j in range(0, phrase_q):
                     word_list[index+j] = "!" + word_list[index+j]
                 amount_neg += 1
 
         for pos in pos_one_space:
             if phrase == pos:
+                # print(phrase)
+                # print("positief woord^")
+                # print()
                 for k in range(0, phrase_q):
                     word_list[index+k] = "$" + word_list[index+k]
                 amount_pos += 1
@@ -162,13 +176,18 @@ for sample in range(len(article_list)):
 
         for neg in neg_no_space:
             if phrase == neg:
-
+                # print(phrase)
+                # print("negatief woord^")
+                # print()
                 for j in range(0, phrase_q):
                     word_list[index+j] = "!" + word_list[index+j]
                 amount_neg += 1
 
         for pos in pos_no_space:
             if phrase == pos:
+                # print(phrase)
+                # print("positief woord^")
+                # print()
                 for k in range(0, phrase_q):
                     word_list[index+k] = "$" + word_list[index+k]
                 amount_pos += 1
