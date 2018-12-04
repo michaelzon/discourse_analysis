@@ -1,6 +1,6 @@
 from spaces import *
-# from article_list import article_list
-from article_list_test import article_list_test
+from article_list import article_list
+# from article_list_test import article_list_test
 
 neg_how_many_spaces(neg_list, neg_no_space, neg_one_space,
                     neg_two_spaces, neg_three_spaces, count)
@@ -20,9 +20,9 @@ bigger_sample_size = 0
 total_amount_pos = 0
 total_amount_neg = 0
 
-for sample in range(len(article_list_test)):
+for sample in range(len(article_list)):
 
-    text = open(article_list_test[sample])
+    text = open(article_list[sample])
 
     # reading the article, using TextBlob library to seperate each word
     text = text.read()
@@ -198,7 +198,7 @@ for sample in range(len(article_list_test)):
     total_amount_pos += amount_pos
     total_amount_neg += amount_neg
 
-    print("sample:", article_list_test[sample][8:-4],"( N =",sample_size,")")
+    print("sample:", article_list[sample][8:-4],"( N =",sample_size,")")
     print("amount_pos", amount_pos)
     print("amount_neg", amount_neg)
     print()
