@@ -14,11 +14,6 @@ with open("my_csv_test.csv", "w", newline = "") as f:
     writer = csv.DictWriter(f, fieldnames = fieldnames)
     writer.writeheader()
     for i in range(len(article_list_test)):
-        # print('eerste letter', article_list_test[i][8])
-        # if article_list_test[i][8] == "a" or "t":
-        #     newspaper_type = 0
-        # if article_list_test[i][8] == "n" or "v":
-        #     newspaper_type = 1
         writer.writerow({"item_ID": article_list_test[i][8:-4], "newspaper_type": 0, "year": article_list_test[i][-8:-4], "sample_size": list_sample_size[i], "amount_pos": list_amount_pos[i], "amount_neg": list_amount_neg[i], "N": list_bigger_sample_size[i]})
     for i in range(len(pop_list)):
         writer.writerow({"item_ID": pop_list[i], "newspaper_type": 0, "year": pop_list[i][-4:], "sample_size": (list_sample_size[i] + list_sample_size[i+5]) , "amount_pos": (list_amount_pos[i] + list_amount_pos[i+5]), "amount_neg": (list_amount_neg[i] + list_amount_neg[i+5]), "N": "."})
