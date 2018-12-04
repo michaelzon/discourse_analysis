@@ -24,7 +24,8 @@ with open("my_csv_test.csv", "w", newline = "") as f:
         writer.writerow({"item_ID": pop_list[i], "newspaper_type": 0, "year": pop_list[i][-4:], "sample_size": (list_sample_size[i] + list_sample_size[i+5]) , "amount_pos": (list_amount_pos[i] + list_amount_pos[i+5]), "amount_neg": (list_amount_neg[i] + list_amount_neg[i+5]), "N": "."})
     for i in range(len(quality_list)):
         writer.writerow({"item_ID": quality_list[i], "newspaper_type": 0, "year": quality_list[i][-4:], "sample_size": (list_sample_size[i+10] + list_sample_size[i+15]), "amount_pos": (list_amount_pos[i+10] + list_amount_pos[i+15]), "amount_neg": (list_amount_neg[i+10] + list_amount_neg[i+15]), "N": "."})
-
+    for i in range(len(tot_list)):
+        writer.writerow({"item_ID": tot_list[i], "newspaper_type": ".", "year": tot_list[i][-4:], "sample_size": (list_sample_size[i] + list_sample_size[i+5] + list_sample_size[i+10] + list_sample_size[i+15]), "amount_pos": (list_amount_pos[i] + list_amount_pos[i+5] + list_amount_pos[i+10] + list_amount_pos[i+15]), "amount_neg": (list_amount_neg[i] + list_amount_neg[i+5] + list_amount_neg[i+10] + list_amount_neg[i+15]), "N": "."  })
 
 
 
