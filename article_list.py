@@ -1,28 +1,29 @@
 # article_list = [ "ad_test/ad_1998.txt" ]
 #  # "ad_test/ad_1999.txt", "ad_test/ad_2000.txt", "ad_test/ad_2001.txt", "ad_test/ad_2002.txt"]
 
-article_list = [ "samples/AD_Algemeen_Dagblad_1998.TXT" ,
-"samples/AD_Algemeen_Dagblad_1999.TXT"
-
-"samples/AD_Algemeen_Dagblad_2000.TXT" ,
-"samples/AD_Algemeen_Dagblad_2001.TXT" ,
-"samples/AD_Algemeen_Dagblad_2002.TXT" ,
-"samples/AD_Algemeen_Dagblad_2003.TXT" ,
-"samples/AD_Algemeen_Dagblad_2004.TXT" ,
-"samples/AD_Algemeen_Dagblad_2005.TXT" ,
-"samples/AD_Algemeen_Dagblad_2006.TXT" ,
-"samples/AD_Algemeen_Dagblad_2007.TXT" ,
-"samples/AD_Algemeen_Dagblad_2008.TXT" ,
-"samples/AD_Algemeen_Dagblad_2009.TXT" ,
-"samples/AD_Algemeen_Dagblad_2010.TXT" ,
-"samples/AD_Algemeen_Dagblad_2011.TXT" ,
-"samples/AD_Algemeen_Dagblad_2012.TXT" ,
-"samples/AD_Algemeen_Dagblad_2013.TXT" ,
-"samples/AD_Algemeen_Dagblad_2014.TXT" ,
-"samples/AD_Algemeen_Dagblad_2015.TXT" ,
-"samples/AD_Algemeen_Dagblad_2016.TXT" ,
-"samples/AD_Algemeen_Dagblad_2017.TXT" ,
-"samples/AD_Algemeen_Dagblad_2018.TXT" ]
+article_list = [
+# "samples/AD_Algemeen_Dagblad_1998.TXT" ,
+# "samples/AD_Algemeen_Dagblad_1999.TXT" ,
+#
+# "samples/AD_Algemeen_Dagblad_2000.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2001.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2002.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2003.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2004.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2005.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2006.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2007.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2008.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2009.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2010.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2011.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2012.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2013.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2014.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2015.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2016.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2017.TXT" ,
+# "samples/AD_Algemeen_Dagblad_2018.TXT" ]
 
 # "samples/De_Telegraaf_1999.TXT" ,
 # "samples/De_Telegraaf_2000.TXT" ,
@@ -45,7 +46,8 @@ article_list = [ "samples/AD_Algemeen_Dagblad_1998.TXT" ,
 # "samples/De_Telegraaf_2015.TXT" ,
 # "samples/De_Telegraaf_2016.TXT" ,
 # "samples/De_Telegraaf_2017.TXT" ,
-# "samples/De_Telegraaf_2018.TXT" ,
+# "samples/De_Telegraaf_2018.TXT" ]
+
 # "samples/De_Volkskrant_1998.TXT" ,
 # "samples/De_Volkskrant_1999.TXT" ,
 # "samples/De_Volkskrant_2000.TXT" ,
@@ -71,7 +73,8 @@ article_list = [ "samples/AD_Algemeen_Dagblad_1998.TXT" ,
 # "samples/De_Volkskrant_2016_2.TXT" ,
 # "samples/De_Volkskrant_2017_1.TXT" ,
 # "samples/De_Volkskrant_2017_2.TXT" ,
-# "samples/De_Volkskrant_2018.TXT" ,
+# "samples/De_Volkskrant_2018.TXT" ]
+
 # "samples/NRC_Handelsblad_1998.TXT" ,
 # "samples/NRC_Handelsblad_1999.TXT" ,
 # "samples/NRC_Handelsblad_2000.TXT" ,
@@ -79,6 +82,7 @@ article_list = [ "samples/AD_Algemeen_Dagblad_1998.TXT" ,
 # "samples/NRC_Handelsblad_2002.TXT" ,
 # "samples/NRC_Handelsblad_2003.TXT" ,
 # "samples/NRC_Handelsblad_2004.TXT" ,
+"samples/NRC_Handelsblad_2005.TXT" ]
 # "samples/NRC_Handelsblad_2006.TXT" ,
 # "samples/NRC_Handelsblad_2007.TXT" ,
 # "samples/NRC_Handelsblad_2008.TXT" ,
