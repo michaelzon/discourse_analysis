@@ -23,7 +23,7 @@ article_list = [
 "samples/AD_Algemeen_Dagblad_2016.TXT" ,
 "samples/AD_Algemeen_Dagblad_2017.TXT" ,
 "samples/AD_Algemeen_Dagblad_2018.TXT" ,
-"samples/De_Telegraaf_1998.TXT" , 
+"samples/De_Telegraaf_1998.TXT" ,
 "samples/De_Telegraaf_1999.TXT" ,
 "samples/De_Telegraaf_2000.TXT" ,
 "samples/De_Telegraaf_2001.TXT" ,
