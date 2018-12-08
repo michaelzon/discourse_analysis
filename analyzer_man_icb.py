@@ -1,5 +1,5 @@
 from spaces import *
-from article_list import article_list
+from article_list_icb import article_list_icb
 # from article_list_test import article_list_test
 
 neg_how_many_spaces(neg_list, neg_no_space, neg_one_space,
@@ -21,9 +21,9 @@ total_amount_pos = 0
 total_amount_neg = 0
 list_word_count = []
 
-for sample in range(len(article_list)):
+for sample in range(len(article_list_icb)):
 
-    text = open(article_list[sample])
+    text = open(article_list_icb[sample])
 
     # reading the article, using TextBlob library to seperate each word
     text = text.read()
@@ -49,10 +49,6 @@ for sample in range(len(article_list)):
                word_count += 1
                word_list.append(word)
     list_word_count.append(word_count)
-
-    print(article_list[sample], word_count)
-print(list_word_count)
-
 
     # variables for the frequencies of negative and positive words in articles
     amount_pos = 0
@@ -206,7 +202,7 @@ print(list_word_count)
     total_amount_pos += amount_pos
     total_amount_neg += amount_neg
 
-    print("sample:", article_list[sample][8:-4],"( N =",sample_size,")")
+    print("sample:", article_list_icb[sample][8:-4],"( N =",sample_size,")")
     print("amount_pos", amount_pos)
     print("amount_neg", amount_neg)
     print()
