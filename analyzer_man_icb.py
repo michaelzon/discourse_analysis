@@ -202,7 +202,7 @@ for sample in range(len(article_list_icb)):
     total_amount_pos += amount_pos
     total_amount_neg += amount_neg
 
-    print("sample:", article_list_icb[sample][8:-4],"( N =",sample_size,")")
+    print("sample:", article_list_icb[sample],"( N =",sample_size,")")
     print("amount_pos", amount_pos)
     print("amount_neg", amount_neg)
     print()
